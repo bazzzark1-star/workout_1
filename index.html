@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise Stopwatch & Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    <!-- Main Workout Column -->
+    <main class="container">
+      <h1>Workout Stopwatch Tracker</h1>
+
+      <!-- Setup View -->
+      <div id="setupView" class="card">
+        <h2>Session Setup</h2>
+        <br>
+        <div class="form-group">
+          <label for="timerMinutes">Duration (Minutes):</label>
+          <input type="number" id="timerMinutes" value="5" min="1" max="180">
+        </div>
+
+        <div class="form-group">
+          <label>Select Exercises:</label>
+          <div class="exercise-grid-select" id="exerciseCheckboxes"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="customExerciseInput">Add Custom Exercise:</label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" id="customExerciseInput" placeholder="e.g. Burpees">
+            <button type="button" id="addCustomBtn" style="width: auto;">Add</button>
+          </div>
+        </div>
+
+        <button id="startBtn">Start Session</button>
+      </div>
+
+      <!-- Active Workout View -->
+      <div id="workoutView" class="card hidden">
+        <h2>Workout in Progress</h2>
+        <div class="timer-display" id="timerDisplay">05:00</div>
+        
+        <div id="counterList" class="counter-list"></div>
+
+        <button id="stopBtn" class="btn-danger" style="margin-top: 15px;">Finish Early</button>
+      </div>
+
+      <!-- Workout Summary View -->
+      <div id="summaryView" class="card hidden">
+        <h2>Session Summary</h2>
+        <p id="summaryTime" style="text-align: center; margin: 10px 0; color: var(--text-muted);"></p>
+        <div id="summaryList" class="counter-list"></div>
+        <button id="resetBtn" style="margin-top: 15px;">New Workout</button>
+      </div>
+
+      <!-- Overall Totals View -->
+      <div class="card">
+        <h2>All-Time Totals</h2>
+        <div id="totalsGrid" class="totals-grid"></div>
+      </div>
+    </main>
+
+    <!-- History Timeline Sidebar -->
+    <aside class="sidebar card">
+      <div class="sidebar-header">
+        <h2>Workout History</h2>
+        <button id="clearHistoryBtn" class="btn-secondary">Clear</button>
+      </div>
+      <div id="historyTimeline" class="timeline"></div>
+    </aside>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
